@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>密码生成器</title>
+    <link rel="stylesheet" type="text/css" href="cube.css">
+    <link rel="stylesheet" type="text/css" href="calc.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../build/text2password.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div id="wrapper">
+            <div id="cube">
+                <div id="face-1" class="face"></div>
+                <div id="face-2" class="face"></div>
+                <div id="face-3" class="face"></div>
+                <div id="face-4" class="face"></div>
+                <div id="face-5" class="face"></div>
+                <div id="face-6" class="face"></div>
+            </div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label>暗语</label> 
+                <input class="form-control" placeholder="芝麻开门"></form>
+                <button type="button" class="btn btn-primary">生成</button>
+            </div>
+        </form>
+        <span id="counter">18275</span>
+        <div id="text2password">
+        </div>
+    </div>
+    <script>
+        var pass = text2password("www.codeschool.com", 8, 1, 1);
+        document.getElementById("text2password").innerHTML=pass;
+    </script>
+    <script>
+        var $counter = $('#counter'), data, t;
+
+        init();
+        function init() {
+          var val = parseInt( $counter.html() );
+          data = {
+            val: parseInt( val/2 ),
+            end: val,
+            step: parseInt( val/100 )
+        }; 
+
+        clearTimeout(t);
+        $counter.find('span').remove();
+        appendNumbers();
+    }
+
+    function appendNumbers() {
+        var delta = (1 - (data.val / data.end)) * 100,
+        $output;
+
+        data.val += data.step;
+        if( data.val > data.end ) data.val = data.end;
+
+        $output = $('<span>' + data.val + '<span>');
+        $counter.append( $output );
+        
+        if( data.val < data.end ) {
+            t = setTimeout( appendNumbers, 1000/delta);
+        } else {
+          $output.addClass('last');
+          $counter.find('span').not('.last').remove();
+      }
+  }
+
+  $('body').on('click', init);
+</script>
+</body>
+</html>
