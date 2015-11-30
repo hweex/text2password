@@ -30,7 +30,7 @@
             <div class="form-group">
                 <label>暗语</label> 
                 <input class="form-control" placeholder="芝麻开门"></form>
-                <button type="button" class="btn btn-primary">生成</button>
+                <button id="gen" type="button" class="btn btn-primary">生成</button>
             </div>
         </form>
         <span id="counter">18275</span>
@@ -76,7 +76,7 @@
       }
   }
 
-  $('body').on('click', init);
+  $('#gen').on('click', init);
 </script>
 </body>
 </html>

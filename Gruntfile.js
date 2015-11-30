@@ -5,6 +5,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
+        banner: ";(function( window, undefined ){'use strict';",
+        footer: ";window.<%= pkg.name %>=<%= pkg.name %>;}(window));",
         separator: ';\n\n',
       },
       dist: {
@@ -12,17 +14,13 @@ module.exports = function(grunt) {
           "src/md5.js",
           "src/text2password.js"
         ],
-        dest: "build/text2password.concat.js"
+        dest: "build/text2password.js"
       }
     },
 
     uglify: {
-      options: {
-        banner: ";(function( window, undefined ){'use strict';",
-        footer: ";window.<%= pkg.name %>=<%= pkg.name %>;}(window));"
-      },
       build: {
-        src: 'build/text2password.concat.js',
+        src: 'build/text2password.js',
         dest: 'build/<%= pkg.name %>.min.js'
       }
     }
