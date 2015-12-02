@@ -32,7 +32,7 @@
             </div>
         </form>
         <div>
-            <span id="counter">2000</span>
+            <span id="counter"></span>
         </div>
     </div>
     <script>
@@ -46,7 +46,7 @@
           }
           pass = text2password(t, 8, 1, 1);
           console.log(pass)
-          var val = parseInt( $counter.html() );
+          var val = 2000;
           data = {
             val: parseInt( val/2 ),
             end: val,

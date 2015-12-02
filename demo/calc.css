@@ -6,13 +6,15 @@ body {
     display: inline-block;
     font-family: 'Courier New', monospace;
     font-weight: bold;
+    width: 232px;
     font-size: 40px;
-    width: 500px;
     letter-spacing: 5px;
     line-height: 1;
     color: transparent;
     position: relative;
     margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
     padding: 10px 0px;
     border-color: #0 #0 #0 #222;
 }
@@ -26,8 +28,10 @@ body {
 }
 #counter span {
     position: absolute;
-    right: 136px;
     top: 0;
+    right: 0px;
+    margin-right: auto;
+    margin-left: auto;
     padding: 10px 0px;
     color: rgba(0,0,0,0.25);
     text-shadow: 0 0 7px #0cf;
