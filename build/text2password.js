@@ -422,6 +422,7 @@ function bit_rol(num, cnt)
             p[i] = t.map(parseInt(p[i]));
             t.value--;
             if (t.value == 0) {
+                types.splice(types.indexOf(t), 1);
                 nt--;
             }
         }
