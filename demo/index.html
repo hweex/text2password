@@ -24,35 +24,54 @@
                 <div id="face-6" class="face"></div>
             </div>
         </div>
+        <h4>请输入生成密码的文字</h4>
         <form class="form-inline" role="form">
             <div class="form-group">
-            <input class="form-control" id="code" placeholder="芝麻开门" type="text">
-            <button class="form-control btn btn-primary" id="gen" type="button">生成</button>
-            
+                <input class="form-control" id="code" placeholder="芝麻开门" type="text">
+                <button class="form-control btn btn-primary" id="gen" type="button">生成</button>
             </div>
         </form>
+        <div class="form-group">
+            位数
+            <select>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+            </select>
+            <input type="checkbox"> 数字
+            <input type="checkbox"> 字母
+            <input type="checkbox"> 特殊字符
+        </div>
         <div>
             <span id="counter"></span>
         </div>
     </div>
     <script>
-        var $counter = $('#counter'), data, t, pass;
+    var $counter=$("#counter"), data, t, pass;
 
-        function init() {
-          var t = $('#code').val();
-          if (!t) {
-            alert("请输入生成密码的文字");
-            return
-          }
-          pass = text2password(t, 8, 1, 1);
-          console.log(pass)
-          var val = 2000;
-          data = {
-            val: parseInt( val/2 ),
-            end: val,
-            step: parseInt( val/100 )
-        }; 
-        console.log(data);
+    function init() {
+      var t = $('#code').val();
+      if (!t) {
+        alert("请输入生成密码的文字");
+        return
+      }
+      pass = text2password(t, 8, 1, 1);
+      var val = 2000;
+      data = {
+        val: parseInt( val/2 ),
+        end: val,
+        step: parseInt( val/100 )
+      };
 
         clearTimeout(t);
         $counter.find('span').remove();
