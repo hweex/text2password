@@ -46,7 +46,8 @@ body {
     border: 1px solid white;
 }
 
-#cube:hover .face {
+#cube:hover .face,
+#cube:focus .face {
     background: transparent;
     box-shadow: none;
     transform: translateZ(0);
