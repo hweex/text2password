@@ -6,6 +6,7 @@ text2password
 Build
 ----
 
-> npm install
-
-> grunt build
+```
+npm install
+grunt build
+```
