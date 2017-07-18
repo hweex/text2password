@@ -33,7 +33,7 @@
         </form>
         <div class="form-group">
             <span class="text-muted">位数</span>
-            <select>
+            <select id="length">
                 <option>4</option>
                 <option>5</option>
                 <option>6</option>
@@ -48,9 +48,9 @@
                 <option>15</option>
                 <option>16</option>
             </select>
-            <input type="checkbox" checked="checked"> 数字
-            <input type="checkbox"> 字母
-            <input type="checkbox"> 特殊字符
+            <input id="digit" type="checkbox" checked="checked"> 数字
+            <input id="letter" type="checkbox"> 字母
+            <input id="symbol" type="checkbox"> 特殊字符
         </div>
         <div>
             <span id="counter"></span>
@@ -65,7 +65,11 @@
         alert("请输入生成密码的文字");
         return
       }
-      pass = text2password(t, 8, 1, 0);
+	  var len = parseInt($('#length').val());
+	  var d = $('#digit').is(':checked') ? 1 : 0;
+	  var l = $('#letter').is(':checked') ? 1 : 0;
+	  var s = $('#symbol').is(':checked') ? 1 : 0;
+      pass = text2password(t, len, d, l, 0, s);
       var val = 2000;
       data = {
         val: parseInt( val/2 ),
