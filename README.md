@@ -10,3 +10,9 @@ Build
 npm install
 grunt build
 ```
+
+Demo
+----
+
+
+http://hweex.github.io/text2password
