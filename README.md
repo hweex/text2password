@@ -15,4 +15,4 @@ Demo
 ----
 
 
-http://hweex.github.io/text2password
+> http://hweex.github.io/text2password
