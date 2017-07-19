@@ -1,0 +1,79 @@
+@keyframes rotate {
+    from {
+        transform: rotateX(0) rotateY(0);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(-360deg);
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, .1), rgba(0, 0, 0, .3));
+    background-color: rgb(255, 255, 255);
+    background-size: 100% 100%;
+    background-position: fixed;
+}
+
+#wrapper {
+    padding: 100px 0;
+    /*box-reflect: below 100px linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .3));*/
+    perspective: 1000px;
+    perspective-origin: 50% 75px;
+}
+
+#cube {
+    position: relative;
+    margin: auto;
+    height: 150px;
+    width: 150px;
+    transform-style: preserve-3d;
+    animation: rotate 5000ms infinite linear;
+}
+
+.face {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: linear-gradient(45deg, rgb(0, 200, 250) 1px, transparent 1px);
+    background-size: 10px 10px;
+    box-shadow: inset 0 0 200px rgba(0, 200, 250, .1);
+    transition: 900ms;
+    border: 1px solid white;
+}
+
+#cube:hover .face,
+#cube:focus .face {
+    background: transparent;
+    box-shadow: none;
+    transform: translateZ(0);
+    border-width: 0px;
+}
+
+#face-1  {
+    transform: rotateX(90deg) translateZ(75px);
+}
+
+#face-2 {
+    transform: translateZ(75px);
+}
+
+#face-3 {
+    transform: rotateY(90deg) translateZ(75px);
+}
+
+#face-4 {
+    transform: rotateY(180deg) translateZ(75px);
+}
+
+#face-5 {
+    transform: rotateY(-90deg) translateZ(75px);
+}
+
+#face-6 {
+    transform: rotateX(-90deg) translateZ(75px) rotate(180deg);
+}
